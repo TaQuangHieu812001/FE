@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     },
     body: {
         marginHorizontal: 12,
+        flex: 1
     },
     OrderStatus: {
         marginTop: windowDimensions.height * 0.04,

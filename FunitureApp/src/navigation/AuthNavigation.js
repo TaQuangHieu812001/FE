@@ -26,15 +26,9 @@ const AuthNavigation = () => {
                 name={ScreenName.REGISTER_SCREEN}
                 component={RegisterScreen}
             />
-           
-            <Stack.Screen
-                name={ScreenName.CATEGORIES_SCREEN}
-                component={CategoriesScreen}
-            />
-            <Stack.Screen
-                name={ScreenName.CART_sCREEN}
-                component={MyCartScreen}
-            />
+
+
+
         </Stack.Navigator>
     )
 }

@@ -5,18 +5,17 @@ import { windowDimensions } from "../../utils/dimesion";
 const styles = StyleSheet.create({
     product: {
         backgroundColor: '#f3f3f3',
-        width: windowDimensions.width * 0.43,
-        height:windowDimensions.height * 0.23,
+        flex: 1,
         padding: 4,
         borderRadius: 12,
         marginTop: '5%',
-        marginLeft:12,
-    
+        //  marginLeft: 12,
+
     },
     imgProduct: {
-        width:'80%',
+        width: '80%',
         height: windowDimensions.height * 0.12,
-        alignSelf:'center',
+        alignSelf: 'center',
     },
     btnFavorite: {
         backgroundColor: 'black',

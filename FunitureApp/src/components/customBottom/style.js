@@ -3,13 +3,18 @@ import React from "react";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    icon:{
-        width:24,
-        height:24,
+    icon: {
+        width: 29,
+        height: 29,
     },
-    tabBar:{
-        flexDirection:'row',
-        justifyContent:'space-between',
+    tabBar: {
+        flexDirection: 'row',
+        backgroundColor: '#fff',
+        padding: 10,
+        justifyContent: 'space-between',
+    },
+    navItem: {
+        alignItems: 'center'
     }
 })
 

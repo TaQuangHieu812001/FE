@@ -1,16 +1,16 @@
-import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import styles from './styles';
-import {useState} from 'react';
-
-const ItemCategory = ({categories}) => {
+import { useState } from 'react';
+import { ScreenName } from '../../../navigation/ScreenName'
+const ItemCategory = ({ categories, navigation }) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
-  const handleItemPress = id => {
-    setSelectedItemIndex(id);
+  const handleItemPress = (id, name) => {
+    navigation.navigate(ScreenName.ProductCateFilter_SCREEN, { id, name })
   };
-  
-  const renderItem = ({item}) => {
+
+  const renderItem = ({ item }) => {
 
     return (
       <TouchableOpacity
@@ -21,9 +21,9 @@ const ItemCategory = ({categories}) => {
               item.id === selectedItemIndex ? '#303030' : '#f5f5f5',
           },
         ]}
-        onPress={() => handleItemPress(item.id)}>
+        onPress={() => handleItemPress(item.id, item.name)}>
         <Image
-          source={{uri: item.image}}
+          source={{ uri: item.image }}
           resizeMode="contain"
           style={[
             styles.iconItem,
@@ -45,7 +45,7 @@ const ItemCategory = ({categories}) => {
     );
   };
   return (
-    <View style={{height: 95}}>
+    <View style={{ height: 95 }}>
       <FlatList
         data={categories}
         renderItem={renderItem}

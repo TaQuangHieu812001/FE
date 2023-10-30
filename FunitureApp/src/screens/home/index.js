@@ -6,28 +6,35 @@ import ItemCategory from '../../components/home/ItemCategory'
 import Product from '../../components/product'
 import { ScreenName } from '../../navigation/ScreenName'
 import CategoryApi from '../../api/Category.api'
+import ProductApi from '../../api/Product.api'
 import { useEffect } from 'react'
 import { useState } from 'react'
-
+import { useSelector } from 'react-redux';
 
 const HomeScreen = ({ navigation }) => {
-    const [categories, setCategories] = useState();
+    const [categories, setCategories] = useState([]);
+    const [products, setProduct] = useState([]);
+    let userState = useSelector(state => state.user);
     useEffect(() => {
-        const dataCategory = async () => {
-            try {
-                const categoriesResult = await CategoryApi();
-                const data = categoriesResult.data.data;
-                setCategories(data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
         dataCategory();
-    }, [])
-
-  
-
-
+        getProductHome();
+    }, []);
+    const dataCategory = async () => {
+        try {
+            const categoriesResult = await CategoryApi();
+            const data = categoriesResult.data.data;
+            setCategories(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const getProductHome = async () => {
+        let res = await ProductApi.ProductHome();
+        if (res.isSuccess) {
+            setProduct(res.data)
+        }
+        else alert(res.msg)
+    }
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -40,7 +47,7 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.parentSearchFilter}>
-                <View style={styles.btnSearch}>
+                <TouchableOpacity onPress={() => navigation.navigate(ScreenName.FillterScreen)} style={styles.btnSearch}>
                     <Image
                         source={icon.search}
                         style={styles.iconSearch}
@@ -49,9 +56,9 @@ const HomeScreen = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         placeholder="Search Here...."
-                        onPre
+                        editable={false}
                     />
-                </View>
+                </TouchableOpacity>
                 <TouchableOpacity>
                     <Image
                         source={icon.filter}
@@ -68,10 +75,10 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {/* Item Category*/}
-       
+
             {
-                categories? (
-                    <ItemCategory categories={categories} />
+                categories ? (
+                    <ItemCategory categories={categories} navigation={navigation} />
                 ) : <Text>Du lieu dang duoc cap nhat</Text>
             }
 
@@ -83,7 +90,10 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={styles.titleViewAll}>View All</Text>
                 </TouchableOpacity>
             </View>
-            <Product />
+            {
+                products.length > 0 &&
+                <Product products={products} navigation={navigation} />
+            }
         </SafeAreaView>
     )
 }

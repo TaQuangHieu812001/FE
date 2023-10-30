@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        marginHorizontal: 10,
+        paddingHorizontal: 10,
 
     },
     header: {
@@ -31,21 +31,25 @@ const styles = StyleSheet.create({
     parentSearchFilter: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: '6%',
-
-        marginLeft: '5%',
+        marginTop: 20
     },
     btnSearch: {
         flexDirection: 'row',
         alignItems: 'center',
         // borderWidth:1,
-        width: '80%',
-
+        padding: 5,
+        backgroundColor: '#f3f3f3',
+        flexGrow: 1,
+        borderRadius: 10,
+        marginRight: 10,
+        height: 50
     },
-
+    input: {
+        flexGrow: 1
+    },
     iconFilter: {
-        width: windowDimensions.width * 0.13,
-        height: windowDimensions.height * 0.07,
+        width: 50,
+        height: 50,
 
     },
     iconSearch: {
@@ -55,9 +59,9 @@ const styles = StyleSheet.create({
     listCategory: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems:'center',
+        alignItems: 'center',
         marginTop: 20,
-        marginHorizontal:4,
+        marginHorizontal: 4,
     },
     titleCategory: {
         fontSize: 16,
