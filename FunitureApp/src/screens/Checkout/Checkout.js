@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, FlatList, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, FlatList, StyleSheet, ScrollView, Linking } from 'react-native'
 import React from 'react'
 
 import Header from '../../components/header'
@@ -56,6 +56,11 @@ const Checkout = ({ navigation }) => {
         let response = await ApiOrder.Add(shipping.id, paymentType, deliverFee, total, CartState.filter(e => e.selected));
         if (response.isSuccess) {
             dispatch(ClearCart());
+            if (response.data != null) {
+                console.log(response.data)
+                Linking.openURL(response.data);
+                navigation.navigate(ScreenName.MYORDER_SCREEN); return;
+            }
             navigation.navigate(ScreenName.CheckoutSuccess)
         }
         else alert(response.msg);
