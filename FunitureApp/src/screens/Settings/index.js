@@ -1,29 +1,85 @@
-import { View, Text, TouchableOpacity, Image, TextInput, Switch } from 'react-native'
+import { View, Text, TouchableOpacity, Image, TextInput, Switch, InteractionManager } from 'react-native'
 import React from 'react'
 import styles from './styles';
 import Header from "../../components/header";
 import icon from '../../utils/icon';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import UserApi from '../../api/User.api'
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import { ChangeProfile } from '../../redux/Login/action';
 const SettingScreen = () => {
-    const [isEditing, setIsEditing] = useState(false);
-    const [changeName, setChangeName] = useState('Hieu Quang Ta')
-    const [changeEmail, setChangeEmail] = useState('taquanghieu812001@gmail.com')
-    const [changPassword, setChangePassword] = useState('133434341111111')
+    let userState = useSelector(state => state.LoginReducer.dataUser);
+    const dispatch = useDispatch();
+    const refInputName = useRef()
+    const refInputPass = useRef()
+    const [changeName, setChangeName] = useState('')
+    const [changeEmail, setChangeEmail] = useState('')
+    const [oldPass, setOldPass] = useState('')
+    const [newPass, setNewPass] = useState('')
     const [isEnabled, setIsEnabled] = useState(false);
+    const [isEditName, setIsEditingName] = useState(false);
+    const [isEditingPass, setIsEditingPass] = useState(false);
+
     // const navigation =useNavigation();
 
-
+    useEffect(() => {
+        setChangeEmail(userState.email),
+            setChangeName(userState.name)
+    }, [])
     // logic
-    const handleEditClick = () => {
-        setIsEditing(!isEditing)
+    const handleEditPassClick = async () => {
+        if (isEditingPass) {
+            //save
+            var resUpdate = await UserApi.UpdatePass({
+                oldPass, newPass
+            });
+            if (resUpdate.isSuccess) {
+                dispatch(ChangeProfile(changeName));
+            }
+            else {
+                alert(resUpdate.msg)
+            }
+            setIsEditingPass(false);
+            return;
+        }
+        setIsEditingPass(true);
+        // InteractionManager.runAfterInteractions(() => {
+        //     refInputPass.current.focus();
+        // });
+
     }
-    const handleSaveClick = () => {
-        setIsEditing(false)
+    const handleEditNameClick = async () => {
+        if (isEditName) {
+            //save
+            console.log({
+                userName: changeName
+            })
+            var resUpdate = await UserApi.UpdateProfile({
+                userName: changeName
+            });
+            if (resUpdate.isSuccess) {
+                dispatch(ChangeProfile(changeName));
+            }
+            else {
+                alert(resUpdate.msg)
+            }
+            setIsEditingName(false);
+            return;
+        }
+
+        setIsEditingName(true);
+        // InteractionManager.runAfterInteractions(() => {
+        //     refInputName.current.focus();
+        // });
+
     }
+
     const toggleSwitch = () => {
         setIsEnabled((previousState) => !previousState);
-      };
+    };
     return (
         <View style={styles.container}>
             <View style={styles.body}>
@@ -36,54 +92,107 @@ const SettingScreen = () => {
                     <Text style={styles.title}>
                         Personal information
                     </Text>
-                    <TouchableOpacity onPress={handleEditClick}>
-                        <Image
-                            source={icon.edit}
-                            resizeMode='contain'
-                            style={styles.editIcon}
-                        />
-                    </TouchableOpacity>
+                    {
+                        isEditName ? <TouchableOpacity onPress={handleEditNameClick} style={{
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingHorizontal: 10,
+                            paddingVertical: 3,
+                            backgroundColor: 'green',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: 5
+                        }}>
+                            <Text style={{ color: '#fff' }}>Lưu</Text>
+                        </TouchableOpacity> : <TouchableOpacity onPress={handleEditNameClick}>
+                            <Image
+                                source={icon.edit}
+                                resizeMode='contain'
+                                style={styles.editIcon}
+                            />
+                        </TouchableOpacity>
+                    }
+
                 </View>
 
                 <View style={styles.inputInformation}>
                     <Text style={styles.name}>Name</Text>
                     <TextInput
+                        autoFocus
+                        ref={refInputName}
                         value={changeName}
-                        onChangeText={setChangeName}
-                        editable={isEditing}
-                        style={[styles.inputNameUser, { borderWidth: isEditing ? 1 : 0 }]}
+                        placeholder='Name'
+                        onChangeText={(txt) => setChangeName(txt)}
+                        editable={isEditName}
+                        style={[styles.inputNameUser]}
                     />
                 </View>
 
                 <View style={styles.inputInformation}>
-                    <Text style={styles.name}>Name</Text>
+                    <Text style={styles.name}>Email</Text>
                     <TextInput
+
+                        placeholder='email'
                         value={changeEmail}
                         onChangeText={setChangeEmail}
-                        editable={isEditing}
-                        style={[styles.inputNameUser, { borderWidth: isEditing ? 1 : 0 }]}
+                        editable={false}
+                        style={[styles.inputNameUser]}
                     />
                 </View>
                 <View style={styles.editPassword}>
                     <Text style={styles.title}>
                         Password
                     </Text>
-                    <TouchableOpacity onPress={handleEditClick}>
-                        <Image
-                            source={icon.edit}
-                            resizeMode='contain'
-                            style={styles.editIcon}
-                        />
-                    </TouchableOpacity>
+                    {
+                        isEditingPass ? <TouchableOpacity onPress={handleEditPassClick} style={{
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingHorizontal: 10,
+                            paddingVertical: 3,
+                            backgroundColor: 'green',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: 5
+                        }}>
+                            <Text style={{ color: '#fff' }}>Lưu</Text>
+                        </TouchableOpacity>
+                            : <TouchableOpacity onPress={handleEditPassClick}>
+                                <Image
+                                    source={icon.edit}
+                                    resizeMode='contain'
+                                    style={styles.editIcon}
+                                />
+                            </TouchableOpacity>
+                    }
+
                 </View>
                 <View style={styles.inputInformation}>
-                    <TextInput
-                        value={changPassword}
-                        onChangeText={setChangePassword}
-                        secureTextEntry={true}
-                        style={[styles.inputNameUser, { borderWidth: isEditing ? 1 : 0 }]}
-                    />
+                    {
+                        isEditingPass && <>
+                            <TextInput
+                                autoFocus
+                                ref={refInputPass}
+                                value={oldPass}
+                                onChangeText={(txt) => setOldPass(txt)}
+                                secureTextEntry={true}
+                                placeholder='Old password'
+                                style={[styles.inputNameUser]}
+                            />
+
+                            <TextInput
+                                value={newPass}
+                                placeholder='New password'
+                                onChangeText={(txt) => setNewPass(txt)}
+                                secureTextEntry={true}
+                                style={[styles.inputNameUser]}
+                            />
+                        </>
+                    }
+
                 </View>
+                <View style={{ height: 10 }}></View>
                 <Text style={styles.title}>Notification</Text>
                 <View style={styles.notification}>
                     <Text style={styles.nameNotification}>{changeEmail}</Text>
@@ -92,7 +201,7 @@ const SettingScreen = () => {
                         thumbColor={isEnabled ? '#ffff' : 'white'}
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={toggleSwitch}
-                        value={isEnabled}   
+                        value={isEnabled}
                     />
                 </View>
                 <View style={styles.notification}>
@@ -102,7 +211,7 @@ const SettingScreen = () => {
                         thumbColor={isEnabled ? '#ffff' : 'white'}
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={toggleSwitch}
-                        value={isEnabled}   
+                        value={isEnabled}
                     />
                 </View>
                 <View style={styles.notification}>
@@ -112,7 +221,7 @@ const SettingScreen = () => {
                         thumbColor={isEnabled ? '#ffff' : 'white'}
                         ios_backgroundColor="#3e3e3e"
                         onValueChange={toggleSwitch}
-                        value={isEnabled}   
+                        value={isEnabled}
                     />
                 </View>
                 <Text style={styles.titleHelp}>Help Center</Text>
@@ -150,4 +259,5 @@ const SettingScreen = () => {
         </View>
     )
 }
+
 export default SettingScreen;

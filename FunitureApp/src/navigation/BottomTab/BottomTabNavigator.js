@@ -14,7 +14,7 @@ import CustomBottomTab from "../../components/customBottom";
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = ({navigation}) => {
+const BottomTabNavigator = ({ navigation }) => {
     const [checkBottomTab, setCheckBottomTab] = useState()
 
     const handleCheckBottomTab = () => {
@@ -25,9 +25,9 @@ const BottomTabNavigator = ({navigation}) => {
             initialRouteName={ScreenName.HOME_SCREEN}
             screenOptions={{
                 headerShown: false,
-                
+
             }}
-            tabBar={(prop) => <CustomBottomTab navigation={navigation}/>}
+            tabBar={(prop) => <CustomBottomTab navigation={navigation} />}
         >
             <Tab.Screen
                 name={ScreenName.HOME_SCREEN}
@@ -47,7 +47,7 @@ const BottomTabNavigator = ({navigation}) => {
             <Tab.Screen
                 name={ScreenName.SETTING_SCREEN}
                 component={SettingScreen}
-            
+
             />
         </Tab.Navigator>
     )
