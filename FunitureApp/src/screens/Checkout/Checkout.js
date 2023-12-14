@@ -15,7 +15,7 @@ const Checkout = ({ navigation }) => {
     const [shipping, setShip] = useState({});
     //0:atm; 1: cash
     const [paymentType, setPaymentType] = useState(null);
-    const [deliverFee, setDeliverFee] = useState(5000);
+    const [deliverFee, setDeliverFee] = useState(50);
     let CartState = useSelector(state => state.CartReducer);
     const [total, setTotal] = useState(0);
 
@@ -68,7 +68,7 @@ const Checkout = ({ navigation }) => {
     return (
         <View style={styles.body}>
             <Header
-                title='Check out'
+                title='Kiểm tra'
                 iconLeft={icon.arrowLeft}
                 onPressLeft={() => navigation.goBack()}
             />

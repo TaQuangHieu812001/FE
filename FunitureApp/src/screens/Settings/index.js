@@ -92,7 +92,7 @@ const SettingScreen = ({ navigation }) => {
                 <Header
                     iconLeft={icon.arrowLeft}
                     title='Cài đặt'
-                // onPressLeft={() => navigation.goBack()}r
+                onPressLeft={() => navigation.goBack()}
                 />
                 <View style={styles.editInformation}>
                     <Text style={styles.title}>
@@ -136,10 +136,10 @@ const SettingScreen = ({ navigation }) => {
                 </View>
 
                 <View style={styles.inputInformation}>
-                    <Text style={styles.name}>Email</Text>
+                    <Text style={styles.name}>Tài khoản</Text>
                     <TextInput
 
-                        placeholder='email'
+                        placeholder='tài khoản'
                         value={changeEmail}
                         onChangeText={setChangeEmail}
                         editable={false}
@@ -230,7 +230,7 @@ const SettingScreen = ({ navigation }) => {
                         value={isEnabled}
                     />
                 </View>
-                <Text style={styles.titleHelp}>Help Center</Text>
+                <Text style={styles.titleHelp}>Trợ giúp</Text>
                 {/* <View style={styles.descriptionHelp}>
                     <Text style={styles.nameHelpCenter}>FAQ</Text>
                     <TouchableOpacity>
@@ -264,7 +264,7 @@ const SettingScreen = ({ navigation }) => {
                 <TouchableOpacity style={styles.btnLogout}
                     onPress={() =>handleLogout() 
                     }>
-                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>Logout</Text>
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>Đăng xuất</Text>
                 </TouchableOpacity>
             </View>
 

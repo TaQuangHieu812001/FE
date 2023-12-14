@@ -54,14 +54,14 @@ const RegisterScreen = ({ navigation }) => {
           paddingBottom: 10,
         }}>
         <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>SignUp</Text>
+          <Text style={styles.titleText}>Đăng ký</Text>
         </View>
 
         <View style={styles.formContainer}>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="UserName"
+              placeholder="Họ Tên"
               placeholderTextColor="gray"
               onChangeText={text => setUserName(text)}
             />
@@ -69,7 +69,7 @@ const RegisterScreen = ({ navigation }) => {
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="Tài khoản"
               placeholderTextColor="gray"
               onChangeText={text => setEmail(text)}
             />
@@ -78,7 +78,7 @@ const RegisterScreen = ({ navigation }) => {
           <View style={styles.parentPassImg}>
             <TextInput
               style={styles.input}
-              placeholder="Password"
+              placeholder="Mật khẩu"
               placeholderTextColor="gray"
               secureTextEntry={seePassword}
               onChangeText={text => setPassword(text)}
@@ -94,14 +94,14 @@ const RegisterScreen = ({ navigation }) => {
 
           <View style={styles.loginButton}>
             <TouchableOpacity onPress={() => handleLogin()}>
-              <Text style={styles.loginButtonText}>SignUp</Text>
+              <Text style={styles.loginButtonText}>Đăng ký</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.signUpContainer}>
-            <Text>Already have an account?  </Text>
+            <Text>Bạn đã có tài khoản?</Text>
             <TouchableOpacity onPress={() => navigation.navigate(ScreenName.LOGIN_EMAIL_SCREEN)}>
-              <Text style={styles.signUpText}>Login</Text>
+              <Text style={styles.signUpText}>Đăng nhập tại đây</Text>
             </TouchableOpacity>
           </View>
         </View>

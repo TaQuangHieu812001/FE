@@ -66,14 +66,14 @@ const LoginEmailScreen = () => {
           paddingBottom: 10,
         }}>
         <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Login</Text>
+          <Text style={styles.titleText}>Đăng nhập</Text>
         </View>
 
         <View style={styles.formContainer}>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="Tài khoản"
               placeholderTextColor="gray"
               onChangeText={text => setEmail(text)}
               value={email}
@@ -82,7 +82,7 @@ const LoginEmailScreen = () => {
           <View style={styles.parentPassImg}>
             <TextInput
               style={styles.input}
-              placeholder="Password"
+              placeholder="Mật khẩu"
               placeholderTextColor="gray"
               secureTextEntry={seePassword}
               onChangeText={text => setPassWord(text)}
@@ -101,14 +101,14 @@ const LoginEmailScreen = () => {
             <TouchableOpacity    
             style={styles.loginButton}
             onPress={() => handleLogin()}>
-              <Text style={styles.loginButtonText}>Login</Text>
+              <Text style={styles.loginButtonText}>Đăng nhập</Text>
             </TouchableOpacity>
     
 
           <View style={styles.signUpContainer}>
-            <Text>Don't have an account? </Text>
+            <Text>Bạn chưa có tài khoản?</Text>
             <TouchableOpacity onPress={() => navigation.navigate(ScreenName.REGISTER_SCREEN)}>
-              <Text style={styles.signUpText}>SignUp</Text>
+              <Text style={styles.signUpText}>Đăng ký</Text>
             </TouchableOpacity>
           </View>
         </View>

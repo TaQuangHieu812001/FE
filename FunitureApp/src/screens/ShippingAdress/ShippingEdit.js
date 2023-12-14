@@ -57,7 +57,7 @@ export default function ShippingAddressEdit({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Header
-                title='Giao hàng'
+                title='Thông tin khách hàng'
                 iconLeft={icon.arrowLeft}
 
             />

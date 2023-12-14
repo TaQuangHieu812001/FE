@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     titleText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 32,
+        fontSize: 25,
     },
     formContainer: {
         alignItems: 'center',

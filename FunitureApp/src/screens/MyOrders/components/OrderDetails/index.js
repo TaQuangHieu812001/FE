@@ -28,7 +28,7 @@ const OrderDetails = ({ data, navigation }) => {
                 </View>
             </>
             <TouchableOpacity style={styles.btnDetail} onPress={() => navigation.navigate(ScreenName.MyOrderDetail, { orderItems: data.orderItems })}>
-                <Text style={styles.contentDetails}>Details</Text>
+                <Text style={styles.contentDetails}>Chi tiết</Text>
             </TouchableOpacity>
 
         </View>

@@ -15,7 +15,7 @@ const OrderSuccess = ({ navigation }) => {
         <View style={styles.body}>
             <View style={{ alignItems: 'center' }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#000' }}>Successfull!!!</Text>
+                    <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#000' }}>Thành công!!!!</Text>
                     <Image
                         style={{ width: 30, height: 30, marginLeft: 20 }}
                         source={icon.checkboxTrue}
@@ -26,8 +26,8 @@ const OrderSuccess = ({ navigation }) => {
                     source={icon.orderSuccess}
                     resizeMode='contain'
                 />
-                <Text style={{ fontSize: 18 }}>{`Your order will be delivered soon.
-Thank you for choosing our app!`}</Text>
+                <Text style={{ fontSize: 18 }}>{`Đơn hàng của bạn sẽ được giao sớm.
+Cảm ơn bạn đã chọn ứng dụng của chúng tôi!!`}</Text>
             </View>
             <View>
                 <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate(ScreenName.MYORDER_SCREEN)}>
@@ -41,7 +41,7 @@ Thank you for choosing our app!`}</Text>
                         style={{ width: 20, height: 20, }}
                         resizeMode='contain'
                     />
-                    <Text style={{ fontWeight: 'bold', fontSize: 17, color: '#000', marginLeft: 20 }}>Back to Home</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 17, color: '#000', marginLeft: 20 }}>Trở về trang chủ</Text>
                 </TouchableOpacity>
             </View>
 

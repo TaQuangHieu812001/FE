@@ -15,10 +15,11 @@ const ProductDetail = ({ route, navigation }) => {
     const [product, setProduct] = useState(null);
     const [productAttr, setProductAttr] = useState(null);
     const [productCount, setProductCount] = useState(1);
+    console.log("a",product?.product.image)
     const dispatch = useDispatch();
     let CartState = useSelector(state => state.CartReducer);
     useEffect(() => {
-        getProductDetail();
+        getProductDetail(); 
     }, [])
     const AddCart = () => {
         dispatch(AddToCart({
@@ -116,7 +117,7 @@ const ProductDetail = ({ route, navigation }) => {
                         </TouchableOpacity>
                         <View>
                             <Text>
-                                {`Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors...`}
+                                {`Ghế sofa 3 chỗ được chia thành các loại ghế sofa khác nhau và gồm 3 loại dựa theo chất liệu đó là sofa da 3 chỗ, sofa nỉ 3 chỗ và sofa gỗ bọc da nỉ 3 chỗ ngồi`}
                             </Text>
                             <TouchableOpacity >
                                 <Text style={{ textAlign: 'center', fontWeight: 'bold' }}>Xem thêm</Text>
@@ -129,7 +130,7 @@ const ProductDetail = ({ route, navigation }) => {
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: 20, alignSelf: 'center' }}>
                     <TouchableOpacity style={{ paddingVertical: 10, paddingHorizontal: 50, backgroundColor: '#303030', borderRadius: 10, marginRight: 20 }} onPress={() => AddCart()}>
-                        <Text style={{ color: '#fff', fontSize: 17, textAlign: 'center' }}>Add to cart</Text>
+                        <Text style={{ color: '#fff', fontSize: 17, textAlign: 'center' }}>Thêm vào giỏ</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: 45, height: 45, borderRadius: 99, backgroundColor: '#f5f5f5', justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => navigation.navigate(ScreenName.MyCartAtHome)}

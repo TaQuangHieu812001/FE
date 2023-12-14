@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     titleText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 32,
+        fontSize: 25,
+        // marginTop:"30%",
     },
     formContainer: {
         alignItems: 'center',

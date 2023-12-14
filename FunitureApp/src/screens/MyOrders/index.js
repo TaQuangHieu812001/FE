@@ -27,27 +27,27 @@ const MyOrderScreen = ({ navigation }) => {
 
       <View style={styles.body}>
         <Header
-          title='My orders'
+          title='Đơn hàng'
           iconLeft={icon.arrowLeft}
           iconRight={icon.shopping}
           onPressLeft={() => navigation.goBack()}
         />
         <View style={styles.OrderStatus}>
           <TouchableOpacity onPress={() => setSelectedTab("delivered")}>
-            <Text style={styles.nameStatus}>Delivered</Text>
+            <Text style={styles.nameStatus}>Thành công</Text>
             {
               selectedTab == "delivered" && <View style={styles.horizontalShort}></View>
             }
 
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setSelectedTab("processing")}>
-            <Text style={styles.nameStatus}>Proccesing</Text>
+            <Text style={styles.nameStatus}>Vận chuyển</Text>
             {
               selectedTab == "processing" && <View style={styles.horizontalShort}></View>
             }
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setSelectedTab("canceled")}>
-            <Text style={styles.nameStatus}>Canceled</Text>
+            <Text style={styles.nameStatus}>Hủy Đơn</Text>
             {
               selectedTab == "canceled" && <View style={styles.horizontalShort}></View>
             }
