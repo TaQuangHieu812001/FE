@@ -31,7 +31,7 @@ export default function Header({ title, iconLeft, iconRight, onPressLeft, onPres
                     <TextInput
                         style={{ flexGrow: 1, padding: 0 }}
                         ref={(input) => { inputSearch = input; }}
-                        placeholder="Search Here...."
+                        placeholder="Tìm kiếm...."
                         onChangeText={(text) => setTextSearch(text)}
                         onSubmitEditing={() => onSearch(textSearch)}
                     />

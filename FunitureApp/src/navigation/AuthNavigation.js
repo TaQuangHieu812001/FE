@@ -14,10 +14,10 @@ const Stack = createNativeStackNavigator()
 const AuthNavigation = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen
+            {/* <Stack.Screen
                 name={ScreenName.LOGIN_SCREEN}
                 component={LoginScreen}
-            />
+            /> */}
             <Stack.Screen
                 name={ScreenName.LOGIN_EMAIL_SCREEN}
                 component={LoginEmailScreen}

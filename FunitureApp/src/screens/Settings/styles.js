@@ -82,7 +82,14 @@ const styles = StyleSheet.create({
         width:18,
         height:18,
         alignSelf:'center',
-        
+    },
+    btnLogout:{
+        marginTop:'20%',
+        backgroundColor:'black',
+        width:'80%',
+        padding:10,
+        alignSelf:'center',
+        borderRadius:8,
     }
     
 })

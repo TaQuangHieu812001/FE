@@ -9,5 +9,7 @@ export default{
     lamp:require('../assets/img/minimalLamp.png'),
     chairTwo:require('../assets/img/MinimalChair_2.png'),
     stand:require('../assets/img/minimalStand.png'),
+    background2:require('../assets/img/background2.png'),
+    light:('../assets/img/light.png'),
 
 }

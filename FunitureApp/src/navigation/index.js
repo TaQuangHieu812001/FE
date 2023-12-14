@@ -16,6 +16,7 @@ import Checkout from '../screens/Checkout/Checkout'
 import CheckoutSuccess from '../screens/Checkout/OrderSuccess'
 import MyOrder from '../screens/MyOrders'
 import MyOrderDetail from '../screens/MyOrders/MyOrderDetail'
+import ProfileScreen from "../screens/Profile";
 const Stack = createNativeStackNavigator();
 
 const RootNavigatior = () => {
@@ -50,6 +51,10 @@ const RootNavigatior = () => {
                 <Stack.Screen
                     name={ScreenName.MyCartAtHome}
                     component={MyCartScreen}
+                />
+                <Stack.Screen
+                    name = {ScreenName.PROFILE_SCREEN}
+                    component={ProfileScreen}
                 />
                 <Stack.Screen
                     name={ScreenName.SHIPPINGADDRESS_SCREEN}

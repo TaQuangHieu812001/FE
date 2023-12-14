@@ -1,4 +1,4 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, CHANGE_NAME } from "./action"
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, CHANGE_NAME, LOGOUT } from "./action"
 
 
 const initialState = {
@@ -29,6 +29,12 @@ const LoginReducer = (state = initialState, action) => {
                 dataUser: null,
                 error: action.payload,
             }
+        case LOGOUT:
+            return {
+                ...state,
+                dataUser: null
+              };
+        
         case CHANGE_NAME:
             let dataUser = { ...state.dataUser }
             dataUser.name = action.payload;

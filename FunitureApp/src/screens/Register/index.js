@@ -1,70 +1,114 @@
 import { View, Text, TextInput, TouchableOpacity, Image, Alert } from 'react-native'
 import React from 'react'
-import styles from './style';
+
 import { useState } from 'react';
 import icon from '../../utils/icon';
 import { useEffect } from 'react';
 import RegisterApi from '../../api/Register.api';
 import { ScreenName } from '../../navigation/ScreenName';
+import styles from './style';
 
 
-const RegisterScreen = ({navigation}) => {
-    const [userName,setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [seePassword, setSeePassword] = useState(true)
+const RegisterScreen = ({ navigation }) => {
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [seePassword, setSeePassword] = useState(true)
 
-    const handleRegister = async ()=>{
-        try{
-            console.log('vao')
-            const userData = {userName,email,password};
-            const user =await RegisterApi(userData);        
-            console.log("user: ",user.data.message);
-          
-           
-        }catch(err){
-            console.log(err)
-        }
-    };
+  const handleRegister = async () => {
+    try {
+      console.log('vao')
+      const userData = { userName, email, password };
+      const user = await RegisterApi(userData);
+      console.log("user: ", user.data.message);
 
-    return (
-        <View style={styles.body}>
-            <Text style={styles.title}>Create your account</Text>
-            <TextInput
-                placeholder="Name"
-                style={styles.input}
-                value={userName}
-                onChangeText={(text) => setUserName(text)}
-            />
-            <TextInput
-                placeholder="Email"
-                style={styles.input}
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-            />
-            <View style={styles.parentPassImg}>
-                <TextInput
-                    style={styles.inputFl}
-                    value={password}
-                    placeholder=" Password"
-                    secureTextEntry={seePassword}
-                    onChangeText={text => setPassword(text)}
-                />
 
-                <TouchableOpacity onPress={() => setSeePassword(!seePassword)}>
-                    <Image
-                        source={seePassword ? icon.eyeActive : icon.eyeClose}
-                        style={styles.imgEye}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-            </View>
-            <TouchableOpacity style={styles.btnCreateAccount} onPress={()=>handleRegister()}>
-                <Text style={styles.titleFooter} >Create Account</Text>
-            </TouchableOpacity>
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.backgroundImage}
+        source={require('../../assets/img/background2.png')}
+      />
+
+      <View style={styles.lightsContainer}>
+        <Image
+          source={require('../../assets/img/light.png')}
+          style={styles.lightImage}
+        />
+        <Image
+          source={require('../../assets/img/light.png')}
+          style={[styles.lightImage, { height: 160, width: 65, opacity: 0.75 }]}
+        />
+      </View>
+
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'space-around',
+          paddingTop: 40,
+          paddingBottom: 10,
+        }}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>SignUp</Text>
         </View>
 
-    )
+        <View style={styles.formContainer}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="UserName"
+              placeholderTextColor="gray"
+              onChangeText={text => setUserName(text)}
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor="gray"
+              onChangeText={text => setEmail(text)}
+            />
+          </View>
+
+          <View style={styles.parentPassImg}>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              placeholderTextColor="gray"
+              secureTextEntry={seePassword}
+              onChangeText={text => setPassword(text)}
+            />
+            <TouchableOpacity onPress={() => setSeePassword(!seePassword)}>
+              <Image
+                source={seePassword ? icon.eyeActive : icon.eyeClose}
+                style={styles.imgEye}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.loginButton}>
+            <TouchableOpacity onPress={() => handleLogin()}>
+              <Text style={styles.loginButtonText}>SignUp</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.signUpContainer}>
+            <Text>Already have an account?  </Text>
+            <TouchableOpacity onPress={() => navigation.navigate(ScreenName.LOGIN_EMAIL_SCREEN)}>
+              <Text style={styles.signUpText}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+      
+    </View>
+  )
 }
 
 export default RegisterScreen;

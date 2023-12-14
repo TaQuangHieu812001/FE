@@ -49,11 +49,37 @@ const MyCartScreen = ({ navigation }) => {
           resizeMode='contain'
           style={styles.product}
         />
-        <View style={styles.detailProduct}>
-          <View>
-            <Text style={styles.nameProduct}>{item.product.nameProduct}</Text>
-            <Text style={styles.price}>{item.productAttribute.price}</Text>
+        <View style={{ margin: 20 }}>
+          <Text style={styles.nameProduct}>{item.product.nameProduct}</Text>
+          <Text style={styles.price}>{item.productAttribute.price}</Text>
+          <View style={styles.detailProduct}>
+
+            <View style={styles.buyProduct}>
+              <TouchableOpacity onPress={() => updateCount(item, -1, index)}>
+                <Image
+                  source={icon.decrease}
+                  resizeMode='contain'
+                  style={styles.buyCount}
+                />
+              </TouchableOpacity>
+              <Text style={styles.count}>{formatCount(item.count)}</Text>
+              <TouchableOpacity onPress={() => updateCount(item, 1, index)}>
+                <Image
+                  source={icon.increase}
+                  resizeMode='contain'
+                  style={styles.buyCount}
+
+                />
+              </TouchableOpacity>
+            </View>
+
           </View>
+        </View>
+        <View>
+
+        </View>
+        {/* <View style={styles.detailProduct}>
+        
           <View style={styles.buyProduct}>
             <TouchableOpacity onPress={() => updateCount(item, -1, index)}>
               <Image
@@ -74,7 +100,8 @@ const MyCartScreen = ({ navigation }) => {
 
           </View>
 
-        </View>
+        </View> */}
+
       </View>
     </View>
   }
@@ -89,54 +116,12 @@ const MyCartScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Header
         iconLeft={icon.arrowLeft}
-        title='My Cart'
+        title='Giỏ hàng'
         onPressLeft={() => navigation.dispatch(CommonActions.goBack())}
         onPressRight={() => navigation.navigate(ScreenName.CART_sCREEN)}
       />
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        {/* <View style={styles.productMain}>
-          <TouchableOpacity style={styles.btnCheckbox} onPress={() => checkProduct()}>
-            <Image
-              source={selectProduct ? icon.checkboxTrue : icon.checkboxFail}
-              resizeMode='contain'
-              style={styles.checkbox}
-            />
-          </TouchableOpacity>
 
-          <View style={styles.viewProduct}>
-            <Image
-              source={image.stand}
-              resizeMode='contain'
-              style={styles.product}
-            />
-            <View style={styles.detailProduct}>
-              <View>
-                <Text style={styles.nameProduct}>Minimal Stand</Text>
-                <Text style={styles.price}>$25.00</Text>
-              </View>
-              <View style={styles.buyProduct}>
-                <TouchableOpacity onPress={() => updateCount(count - 1, setCount)}>
-                  <Image
-                    source={icon.decrease}
-                    resizeMode='contain'
-                    style={styles.buyCount}
-                  />
-                </TouchableOpacity>
-                <Text style={styles.count}>{formatCount(count)}</Text>
-                <TouchableOpacity onPress={() => updateCount(count + 1, setCount)}>
-                  <Image
-                    source={icon.increase}
-                    resizeMode='contain'
-                    style={styles.buyCount}
-
-                  />
-                </TouchableOpacity>
-
-              </View>
-
-            </View>
-          </View>
-        </View> */}
         <FlatList
           data={CartState}
           renderItem={renderItem}
@@ -144,14 +129,14 @@ const MyCartScreen = ({ navigation }) => {
       </View>
       <View style={styles.footer}>
         <View style={styles.detailFooter}>
-          <Text style={styles.itemProduct}>SelectItems ({CartState.filter(e => e.selected).length})</Text>
+          <Text style={styles.itemProduct}>Số lượng ({CartState.filter(e => e.selected).length})</Text>
           <View style={styles.total}>
-            <Text style={styles.titleTotal}>Total</Text>
+            <Text style={styles.titleTotal}>Giá</Text>
             <Text style={styles.priceTotal}>{getPrice()}</Text>
           </View>
         </View>
         <TouchableOpacity disabled={CartState.filter(e => e.selected).length <= 0} style={styles.btnCheckOut} onPress={() => navigation.navigate(ScreenName.Checkout)}>
-          <Text style={styles.contentCheckOut}>Check Out</Text>
+          <Text style={styles.contentCheckOut}>Thanh toán</Text>
         </TouchableOpacity>
       </View>
     </View>

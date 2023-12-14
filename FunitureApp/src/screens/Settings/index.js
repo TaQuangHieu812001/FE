@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, TextInput, Switch, InteractionManager } from 'react-native'
+import { View, Text, TouchableOpacity, Image, TextInput, Switch, InteractionManager, ScrollView } from 'react-native'
 import React from 'react'
 import styles from './styles';
 import Header from "../../components/header";
@@ -9,8 +9,9 @@ import { useNavigation } from '@react-navigation/native';
 import UserApi from '../../api/User.api'
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import { ChangeProfile } from '../../redux/Login/action';
-const SettingScreen = () => {
+import { ChangeProfile, Logout } from '../../redux/Login/action';
+import { ScreenName } from '../../navigation/ScreenName';
+const SettingScreen = ({ navigation }) => {
     let userState = useSelector(state => state.LoginReducer.dataUser);
     const dispatch = useDispatch();
     const refInputName = useRef()
@@ -29,6 +30,10 @@ const SettingScreen = () => {
         setChangeEmail(userState.email),
             setChangeName(userState.name)
     }, [])
+    const handleLogout =()=>{
+        dispatch(Logout())
+       
+    }
     // logic
     const handleEditPassClick = async () => {
         if (isEditingPass) {
@@ -81,16 +86,17 @@ const SettingScreen = () => {
         setIsEnabled((previousState) => !previousState);
     };
     return (
+
         <View style={styles.container}>
             <View style={styles.body}>
                 <Header
                     iconLeft={icon.arrowLeft}
-                    title='Settings'
+                    title='Cài đặt'
                 // onPressLeft={() => navigation.goBack()}r
                 />
                 <View style={styles.editInformation}>
                     <Text style={styles.title}>
-                        Personal information
+                        Sửa thông tin
                     </Text>
                     {
                         isEditName ? <TouchableOpacity onPress={handleEditNameClick} style={{
@@ -117,12 +123,12 @@ const SettingScreen = () => {
                 </View>
 
                 <View style={styles.inputInformation}>
-                    <Text style={styles.name}>Name</Text>
+                    <Text style={styles.name}>Tên</Text>
                     <TextInput
                         autoFocus
                         ref={refInputName}
                         value={changeName}
-                        placeholder='Name'
+                        placeholder='Tên'
                         onChangeText={(txt) => setChangeName(txt)}
                         editable={isEditName}
                         style={[styles.inputNameUser]}
@@ -142,7 +148,7 @@ const SettingScreen = () => {
                 </View>
                 <View style={styles.editPassword}>
                     <Text style={styles.title}>
-                        Password
+                        Đổi mật khẩu
                     </Text>
                     {
                         isEditingPass ? <TouchableOpacity onPress={handleEditPassClick} style={{
@@ -193,7 +199,7 @@ const SettingScreen = () => {
 
                 </View>
                 <View style={{ height: 10 }}></View>
-                <Text style={styles.title}>Notification</Text>
+                <Text style={styles.title}>Thông báo</Text>
                 <View style={styles.notification}>
                     <Text style={styles.nameNotification}>{changeEmail}</Text>
                     <Switch
@@ -205,7 +211,7 @@ const SettingScreen = () => {
                     />
                 </View>
                 <View style={styles.notification}>
-                    <Text style={styles.nameNotification}>Dark Mode</Text>
+                    <Text style={styles.nameNotification}>Chế độ sáng tối</Text>
                     <Switch
                         trackColor={{ false: '#E0E0E0', true: '#27AE60' }}
                         thumbColor={isEnabled ? '#ffff' : 'white'}
@@ -215,7 +221,7 @@ const SettingScreen = () => {
                     />
                 </View>
                 <View style={styles.notification}>
-                    <Text style={styles.nameNotification}>Delivery status changes</Text>
+                    <Text style={styles.nameNotification}>Trạng thái hoạt động</Text>
                     <Switch
                         trackColor={{ false: '#E0E0E0', true: '#27AE60' }}
                         thumbColor={isEnabled ? '#ffff' : 'white'}
@@ -225,7 +231,7 @@ const SettingScreen = () => {
                     />
                 </View>
                 <Text style={styles.titleHelp}>Help Center</Text>
-                <View style={styles.descriptionHelp}>
+                {/* <View style={styles.descriptionHelp}>
                     <Text style={styles.nameHelpCenter}>FAQ</Text>
                     <TouchableOpacity>
                         <Image
@@ -234,8 +240,8 @@ const SettingScreen = () => {
                             style={styles.arrowBottomIcon}
                         />
                     </TouchableOpacity>
-                </View>
-                <View style={styles.descriptionHelp}>
+                </View> */}
+                {/* <View style={styles.descriptionHelp}>
                     <Text style={styles.nameHelpCenter}>Contact Us</Text>
                     <TouchableOpacity>
                         <Image
@@ -254,9 +260,16 @@ const SettingScreen = () => {
                             style={styles.arrowBottomIcon}
                         />
                     </TouchableOpacity>
-                </View>
+                </View> */}
+                <TouchableOpacity style={styles.btnLogout}
+                    onPress={() =>handleLogout() 
+                    }>
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center' }}>Logout</Text>
+                </TouchableOpacity>
             </View>
+
         </View>
+
     )
 }
 

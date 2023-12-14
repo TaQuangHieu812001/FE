@@ -28,7 +28,7 @@ const CategoriesScreen = () => {
   return (
     <View style={styles.container}>
       <Header
-        title="Categories"
+        title="Danh mục sản phẩm"
         iconLeft={icon.arrowLeft}
         iconRight={icon.shopping}
         onPressLeft={() => navigation.goBack()}

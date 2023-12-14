@@ -3,103 +3,87 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: 'white',
-    },
-    body: {
         flex: 1,
-        backgroundColor: 'white',
+        position: 'relative',
     },
-    title: {
-        fontSize: 22,
-        color: 'black',
-        fontWeight: '600',
-        textAlign: 'center',
-        marginTop: '30%',
+    backgroundImage: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
     },
-    input: {
-        marginTop: '10%',
-        alignSelf: 'center',
-        width: '90%',
-        borderRadius: 5,
-        borderColor: '#909090',
-        height: 42,
-        padding: 10,
-        borderWidth: 1,
+    lightsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        position: 'absolute',
+        width: '100%',
+    },
+    lightImage: {
+        height: 225,
+        width: 90,
+    },
+    titleContainer: {
+        alignItems: 'center',
+    },
+    titleText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 32,
+    },
+    formContainer: {
+        alignItems: 'center',
+        marginHorizontal: 10,
+        marginTop: 24,
     },
     parentPassImg: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '90%',
         alignSelf: 'center',
-        height:42,
-        borderWidth: 1,
-        borderColor: '#909090',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        padding: 2,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
         alignItems: 'center',
-        marginTop: "6%",
-        borderRadius: 5,
+      
     },
-
+    inputContainer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        padding: 2,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
+    },
+    input: {
+        color: 'black',
+        fontSize: 16,
+    },
     imgEye: {
         width: 20,
         height: 20,
         paddingRight: '10%',
     },
-    inputFl: {
-        borderColor: "#909090",
-        flexGrow: 1,
-        borderRadius: 5,
-        width:'80%',   
+    loginButton: {
+        backgroundColor: '#00BFFF',
+        padding: 10,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
+        alignItems: 'center',
     },
-
-    inputPass: {
-        alignSelf: 'center',
-        marginTop: '8%',
-        width: '90%',
-        borderRadius: 8,
-        borderWidth: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+    loginButtonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
-    btnForgot: {
-        marginRight: '6%',
-        marginTop: 6,
-        alignSelf: 'flex-end',
-        width: '30%',
-        justifyContent: 'center',
-
-    },
-    titleForgot: {
-        fontSize: 12,
-        padding: 2,
-        color: 'blue',
-        textAlign: 'center',
-    },
-    titleLogin: {
-        textAlign: 'center',
-        color:'white',
-        fontWeight:'800',
-        fontSize:15,
-    },
-    btnLogin: {
-        backgroundColor:'blue',
-        marginTop: '8%',
-        height: 45,
-        justifyContent: 'center',
-        width: '70%',
-        borderRadius: 4,
-        alignSelf: 'center'
-    },
-    row: {
+    signUpContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: '20%',
     },
-    titleSignUp:{
-        color:'blue',
-        fontWeight:'600',
+    signUpText: {
+        color: '#00BFFF',
     },
-    
 
 })
 

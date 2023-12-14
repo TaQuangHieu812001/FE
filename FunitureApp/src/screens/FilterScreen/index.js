@@ -39,9 +39,9 @@ const FilterScreen = ({ navigation }) => {
             />
             <View style={{ paddingHorizontal: 15 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, alignItems: 'baseline' }}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 18, color: '#000', marginTop: 10 }} >Last Search</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 18, color: '#000', marginTop: 10 }} >Hiện đầu tiên</Text>
                     <TouchableOpacity>
-                        <Text style={{ color: '#fea800' }}>Clear All</Text>
+                        <Text style={{ color: '#fea800' }}>Xóa tất cả</Text>
                     </TouchableOpacity>
                 </View>
                 <View >
@@ -63,7 +63,7 @@ const FilterScreen = ({ navigation }) => {
                         </TouchableOpacity>)
                     }
                 </View>
-                <Text style={{ fontWeight: 'bold', fontSize: 18, color: '#000', marginTop: 10 }}>Related Product</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 18, color: '#000', marginTop: 10 }}>Sản phẩm</Text>
 
             </View>
             {

@@ -3,71 +3,90 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: 'white',
-    },
-    body: {
         flex: 1,
-        backgroundColor: 'white',
+        position: 'relative',
     },
-    title: {
-        fontSize: 22,
-        color: 'black',
-        fontWeight: '600',
-        textAlign: 'center',
-        marginTop: '30%',
+    backgroundImage: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+    },
+    lightsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        position: 'absolute',
+        width: '100%',
+    },
+    lightImage: {
+        height: 225,
+        width: 90,
+    },
+    titleContainer: {
+        alignItems: 'center',
+    },
+    titleText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 32,
+    },
+    formContainer: {
+        alignItems: 'center',
+        marginHorizontal: 10,
+        marginTop: 24,
+      
     },
     parentPassImg: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '90%',
         alignSelf: 'center',
-        height: 42,
-        borderWidth: 1,
-        borderColor: '#909090',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        padding: 2,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
         alignItems: 'center',
-        marginTop: "6%",
-        borderRadius: 5,
+      
+    },
+    inputContainer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        padding: 2,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
+      
     },
     input: {
-        marginTop: 12,
-        alignSelf: 'center',
-        width: '90%',
-        borderRadius: 5,
-        borderColor: '#909090',
-        height: 42,
-        padding: 10,
-        borderWidth: 1,
+        color: 'black',
+        fontSize: 16,
     },
-    inputFl: {
-        borderColor: "#909090",
-        flexGrow: 1,
-        borderRadius: 5,
-        width: '80%',
-    },
-
+  
     imgEye: {
         width: 20,
         height: 20,
         paddingRight: '10%',
     },
-    btnCreateAccount:{
-        borderWidth:1,
-        backgroundColor:'blue',
-        marginTop: '8%',
-        height: 45,
+    loginButton: {
+        backgroundColor: '#00BFFF',
+        padding: 10,
+        borderRadius: 10,
+        width: '100%',
+        marginBottom: 10,
+        alignItems: 'center',
+    },
+    loginButtonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    signUpContainer: {
+        flexDirection: 'row',
         justifyContent: 'center',
-        width: '70%',
-        borderRadius: 4,
-        alignSelf: 'center'
     },
-    titleFooter:{
-        textAlign: 'center',
-        color:'white',
-        fontWeight:'800',
-        fontSize:15,
+    signUpText: {
+        color: '#00BFFF',
     },
-
 
 })
 

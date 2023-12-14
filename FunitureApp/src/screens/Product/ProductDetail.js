@@ -67,7 +67,7 @@ const ProductDetail = ({ route, navigation }) => {
                                 width={Dimensions.get('window').width * 0.85}
                                 height={Dimensions.get('window').height / 2}
                                 autoPlay={true}
-                                data={['http://192.168.1.11:5123/images/stylish-sofa.png', 'http://192.168.1.11:5123/images/product1.png']}
+                                data={['http://192.168.1.15:5000/images/stylish-sofa.png', 'http://192.168.1.15:5000/images/product1.png']}
                                 scrollAnimationDuration={1000}
 
                                 renderItem={({ item, index }) => (

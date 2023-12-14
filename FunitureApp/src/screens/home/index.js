@@ -39,8 +39,8 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <View>
-                    <Text style={styles.title}>Good Evening</Text>
-                    <Text style={styles.text_wellcome}>Welcome Back...</Text>
+                    <Text style={styles.title}>Chào buổi sáng</Text>
+                    <Text style={styles.text_wellcome}>Mong rằng sẽ có trải nghiệm tốt...</Text>
                 </View>
                 <TouchableOpacity style={styles.btnProfile} onPress={() => navigation.navigate(ScreenName.PROFILE_SCREEN)}>
                     <Image source={icon.profile} style={styles.iconProfile} resizeMode='contain' />
@@ -55,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Search Here...."
+                        placeholder="Tìm kiếm...."
                         editable={false}
                     />
                 </TouchableOpacity>
@@ -68,10 +68,10 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.listCategory}>
-                <Text style={styles.titleCategory}>Choose Category</Text>
+                <Text style={styles.titleCategory}>Danh mục sản phẩm</Text>
 
                 <TouchableOpacity onPress={() => navigation.navigate(ScreenName.CATEGORIES_SCREEN)}>
-                    <Text style={styles.titleViewAll}>View All</Text>
+                    <Text style={styles.titleViewAll}>Hiện tất</Text>
                 </TouchableOpacity>
             </View>
             {/* Item Category*/}
@@ -79,15 +79,15 @@ const HomeScreen = ({ navigation }) => {
             {
                 categories ? (
                     <ItemCategory categories={categories} navigation={navigation} />
-                ) : <Text>Du lieu dang duoc cap nhat</Text>
+                ) : <Text>Dữ liệu đang được cập nhật vui lòng chờ....</Text>
             }
 
             <View style={styles.listCategory}>
                 <TouchableOpacity>
-                    <Text style={styles.titleCategory}>NewArrival</Text>
+                    <Text style={styles.titleCategory}>Hàng mới nhất</Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Text style={styles.titleViewAll}>View All</Text>
+                    <Text style={styles.titleViewAll}>Hiện tất</Text>
                 </TouchableOpacity>
             </View>
             {
