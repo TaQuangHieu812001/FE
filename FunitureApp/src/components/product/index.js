@@ -52,7 +52,7 @@ const Product = ({ products, navigation }) => {
             style={styles.imgProduct}
           />
           <Text style={styles.nameProduct}>{item.product.nameProduct}</Text>
-          <Text style={styles.price}>{item.productAttribute[0]?.price}</Text>
+          <Text style={styles.price}>${item.productAttribute[0]?.price}</Text>
         </TouchableOpacity>
       </View>
     );

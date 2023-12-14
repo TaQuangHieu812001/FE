@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         paddingRight: '10%',
     },
     loginButton: {
+
         backgroundColor: '#00BFFF',
         padding: 10,
         borderRadius: 10,

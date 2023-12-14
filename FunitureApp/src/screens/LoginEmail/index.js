@@ -28,11 +28,7 @@ const LoginEmailScreen = () => {
   const handleLogin = async () => {
     const user = {email, password};
     const response = await LoginApi(user);
-    console.log('respone: ', response);
-    // dispatch(LoginRequest({
-    //     email,
-    //     password,
-    // }))
+   
     if (response.isSuccess) {
       dispatch(LoginSuccess(response.data));
 
@@ -44,46 +40,7 @@ const LoginEmailScreen = () => {
     }
   };
   return (
-    // <View style={styles.body}>
-    //     <Image
-    //         source={require('../../assets/img/background2.png')}
-    //         style={{flex:1,width:'100%',height:'100%',borderWidth:1}}
-    //     />
-    //     <Text style={styles.title}>Login with account</Text>
-    //     <TextInput
-    //         placeholder="Email"
-    //         style={styles.input}
-    //         onChangeText={text => setEmail(text)}
-    //     />
-    //     <View style={styles.parentPassImg}>
-    //         <TextInput
-    //             style={styles.inputFl}
-    //             placeholder=" Password"
-    //             secureTextEntry={seePassword}
-    //             onChangeText={text => setPassWord(text)}
-    //         />
-    //         <TouchableOpacity onPress={() => setSeePassword(!seePassword)}>
-    //             <Image
-    //                 source={seePassword ? icon.eyeActive : icon.eyeClose}
-    //                 style={styles.imgEye}
-    //                 resizeMode="contain"
-    //             />
-    //         </TouchableOpacity>
-    //     </View>
-    //     <TouchableOpacity style={styles.btnForgot}>
-    //         <Text style={styles.titleForgot}>Forgot Password?</Text>
-    //     </TouchableOpacity>
-    //     <TouchableOpacity style={styles.btnLogin}
-    //         onPress={() => handleLogin()}
-    //     >
-
-    //         <Text style={styles.titleLogin}>Login</Text></TouchableOpacity>
-    //     <View style={styles.row}>
-    //         <Text style={{ marginBottom: 1 }}>Don't have an account?</Text>
-    //         <TouchableOpacity onPress={() => navigation.navigate(ScreenName.REGISTER_SCREEN)}><Text style={styles.titleSignUp}>Sign up</Text></TouchableOpacity>
-    //     </View>
-
-    // </View>
+   
     <View style={styles.container}>
       <Image
         style={styles.backgroundImage}
@@ -119,6 +76,7 @@ const LoginEmailScreen = () => {
               placeholder="Email"
               placeholderTextColor="gray"
               onChangeText={text => setEmail(text)}
+              value={email}
             />
           </View>
           <View style={styles.parentPassImg}>
@@ -128,6 +86,7 @@ const LoginEmailScreen = () => {
               placeholderTextColor="gray"
               secureTextEntry={seePassword}
               onChangeText={text => setPassWord(text)}
+              value={password}
             />
             <TouchableOpacity onPress={() => setSeePassword(!seePassword)}>
               <Image
@@ -138,11 +97,13 @@ const LoginEmailScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <View style={styles.loginButton}>
-            <TouchableOpacity    onPress={() => handleLogin()}>
+
+            <TouchableOpacity    
+            style={styles.loginButton}
+            onPress={() => handleLogin()}>
               <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
-          </View>
+    
 
           <View style={styles.signUpContainer}>
             <Text>Don't have an account? </Text>

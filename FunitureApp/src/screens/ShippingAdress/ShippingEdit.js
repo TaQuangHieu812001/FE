@@ -15,12 +15,15 @@ export default function ShippingAddressEdit({ navigation, route }) {
 
     useEffect(() => {
         getAllShip();
-        if (route.params.name) {
-            setName(route.params.name);
-            setPhone(route.params.phoneNumber);
-            setAddress(route.params.address);
-            isUpdate = true;
+        if(route.params!=null){
+            if (route.params.name) {
+                setName(route.params.name);
+                setPhone(route.params.phoneNumber);
+                setAddress(route.params.address);
+                isUpdate = true;
+            }
         }
+      
     }, [])
     const saveShip = async () => {
         if (isUpdate) {
@@ -54,7 +57,7 @@ export default function ShippingAddressEdit({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Header
-                title='Shipping Address'
+                title='Giao hàng'
                 iconLeft={icon.arrowLeft}
 
             />

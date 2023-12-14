@@ -34,7 +34,7 @@ const CategoriesScreen = () => {
         onPressLeft={() => navigation.goBack()}
         onPressRight={() => navigation.navigate(ScreenName.CART_sCREEN)}
       />
-      <ListCategory  categories ={categories}/>
+      <ListCategory  categories ={categories} navigation={navigation}/>
     </View>
   );
 };

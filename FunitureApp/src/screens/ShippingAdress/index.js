@@ -72,7 +72,7 @@ export default function ShippingAddressScreen({ navigation }) {
 
                 <View style={styles.footerOrdersDetails}>
                     <TouchableOpacity style={styles.btnEdit} onPress={() => navigation.navigate(ScreenName.ShippingEdit, item)}>
-                        <Text style={styles.contnentEdit}>Edit</Text>
+                        <Text style={styles.contnentEdit}>Sửa</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.btnDelete} onPress={() => remove(item.id)}>
                         <Image
@@ -90,13 +90,13 @@ export default function ShippingAddressScreen({ navigation }) {
         <View style={styles.container}>
             <View style={styles.body}>
                 <Header
-                    title='Shipping Address'
+                    title='Giao hàng'
                     iconLeft={icon.arrowLeft}
                     iconRight={icon.increase}
                     onPressRight={() => navigation.navigate(ScreenName.ShippingEdit)}
                     onPressLeft={() => navigation.goBack()}
                 />
-                <Text style={styles.contentShipping}>Use as the shipping address</Text>
+                <Text style={styles.contentShipping}>Thông tin địa chỉ giao hàng</Text>
 
                 <FlatList
                     data={ship}

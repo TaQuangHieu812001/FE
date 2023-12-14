@@ -77,7 +77,7 @@ const Checkout = ({ navigation }) => {
                     <View style={{ height: 20 }}></View>
                     <TouchableOpacity style={styles.btnEdit} onPress={() => navigation.navigate(ScreenName.SHIPPINGADDRESS_SCREEN)}>
                         <Text style={{ fontSize: 20 }}>
-                            Shipping Address
+                           Vận chuyển
                         </Text>
                         <Image
                             source={icon.edit}
@@ -90,7 +90,7 @@ const Checkout = ({ navigation }) => {
                     </Text>
                     <TouchableOpacity style={styles.btnEdit}>
                         <Text style={{ fontSize: 20 }}>
-                            Payments
+                            Thanh toán
                         </Text>
                         <Image
                             source={icon.edit}

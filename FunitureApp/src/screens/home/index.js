@@ -86,9 +86,7 @@ const HomeScreen = ({ navigation }) => {
                 <TouchableOpacity>
                     <Text style={styles.titleCategory}>Hàng mới nhất</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={styles.titleViewAll}>Hiện tất</Text>
-                </TouchableOpacity>
+                
             </View>
             {
                 products.length > 0 &&

@@ -6,8 +6,10 @@ import Product from '../../components/product';
 import ProductApi from '../../api/Product.api'
 import icon from '../../utils/icon';
 import Header from '../../components/header';
+import CategoryApi from '../../api/Category.api';
 const ProductCateFilter = ({ navigation, route }) => {
     const [products, setProduct] = useState([]);
+   
     useEffect(() => {
         getProduct()
     }, [])
@@ -16,7 +18,10 @@ const ProductCateFilter = ({ navigation, route }) => {
         if (response.isSuccess) {
             setProduct(response.data);
         } else alert(response.msg)
+        
     }
+    // console.log(products)
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <Header
