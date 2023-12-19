@@ -85,7 +85,7 @@ const ProductDetail = ({ route, navigation }) => {
                     <View style={{ padding: 20 }}>
                         <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#000' }}>{product.product.nameProduct}</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 20, marginVertical: 10 }}>
-                            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#000' }}>{getPrice()}</Text>
+                            <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#000' }}>${getPrice()}</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <TouchableOpacity style={{ width: 25, height: 25, borderRadius: 15, borderWidth: 1, justifyContent: 'center', alignItems: 'center' }}
 

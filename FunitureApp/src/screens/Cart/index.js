@@ -78,29 +78,7 @@ const MyCartScreen = ({ navigation }) => {
         <View>
 
         </View>
-        {/* <View style={styles.detailProduct}>
-        
-          <View style={styles.buyProduct}>
-            <TouchableOpacity onPress={() => updateCount(item, -1, index)}>
-              <Image
-                source={icon.decrease}
-                resizeMode='contain'
-                style={styles.buyCount}
-              />
-            </TouchableOpacity>
-            <Text style={styles.count}>{formatCount(item.count)}</Text>
-            <TouchableOpacity onPress={() => updateCount(item, 1, index)}>
-              <Image
-                source={icon.increase}
-                resizeMode='contain'
-                style={styles.buyCount}
-
-              />
-            </TouchableOpacity>
-
-          </View>
-
-        </View> */}
+      
 
       </View>
     </View>
@@ -132,7 +110,7 @@ const MyCartScreen = ({ navigation }) => {
           <Text style={styles.itemProduct}>Số lượng ({CartState.filter(e => e.selected).length})</Text>
           <View style={styles.total}>
             <Text style={styles.titleTotal}>Giá</Text>
-            <Text style={styles.priceTotal}>{getPrice()}</Text>
+            <Text style={styles.priceTotal}>${getPrice()}</Text>
           </View>
         </View>
         <TouchableOpacity disabled={CartState.filter(e => e.selected).length <= 0} style={styles.btnCheckOut} onPress={() => navigation.navigate(ScreenName.Checkout)}>

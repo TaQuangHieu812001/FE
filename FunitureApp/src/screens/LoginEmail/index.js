@@ -18,8 +18,8 @@ import LoginApi from '../../api/Login.api';
 import image from '../../utils/image';
 
 const LoginEmailScreen = () => {
-  const [email, setEmail] = useState('t12k1@gmail.com');
-  const [password, setPassWord] = useState('123456');
+  const [email, setEmail] = useState('test@gmail.com');
+  const [password, setPassWord] = useState('1234567');
   const [seePassword, setSeePassword] = useState(true);
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const LoginEmailScreen = () => {
    
     if (response.isSuccess) {
       dispatch(LoginSuccess(response.data));
-
+      
       navigation.navigate(ScreenName.BOTTOM_TAB_NAVIGATOR, {
         screen: ScreenName.HOME_SCREEN,
       });
@@ -111,6 +111,9 @@ const LoginEmailScreen = () => {
               <Text style={styles.signUpText}>Đăng ký</Text>
             </TouchableOpacity>
           </View>
+          <TouchableOpacity onPress={() => navigation.navigate(ScreenName.REGISTER_SCREEN)}>
+              <Text style={styles.signUpText}> Quên mật khẩu?</Text>
+            </TouchableOpacity>
         </View>
       </View>
     </View>

@@ -24,6 +24,7 @@ const SettingScreen = ({ navigation }) => {
     const [isEditName, setIsEditingName] = useState(false);
     const [isEditingPass, setIsEditingPass] = useState(false);
 
+
     // const navigation =useNavigation();
 
     useEffect(() => {
@@ -51,10 +52,7 @@ const SettingScreen = ({ navigation }) => {
             return;
         }
         setIsEditingPass(true);
-        // InteractionManager.runAfterInteractions(() => {
-        //     refInputPass.current.focus();
-        // });
-
+  
     }
     const handleEditNameClick = async () => {
         if (isEditName) {
@@ -123,12 +121,13 @@ const SettingScreen = ({ navigation }) => {
                 </View>
 
                 <View style={styles.inputInformation}>
-                    <Text style={styles.name}>Tên</Text>
+                 
                     <TextInput
                         autoFocus
                         ref={refInputName}
                         value={changeName}
-                        placeholder='Tên'
+                        placeholder={userState.userName}
+                        placeholderTextColor='black'
                         onChangeText={(txt) => setChangeName(txt)}
                         editable={isEditName}
                         style={[styles.inputNameUser]}
@@ -183,13 +182,13 @@ const SettingScreen = ({ navigation }) => {
                                 value={oldPass}
                                 onChangeText={(txt) => setOldPass(txt)}
                                 secureTextEntry={true}
-                                placeholder='Old password'
+                                placeholder='Mật khẩu hiện tại'
                                 style={[styles.inputNameUser]}
                             />
 
                             <TextInput
                                 value={newPass}
-                                placeholder='New password'
+                                placeholder='Mật khẩu mới'
                                 onChangeText={(txt) => setNewPass(txt)}
                                 secureTextEntry={true}
                                 style={[styles.inputNameUser]}

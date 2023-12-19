@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         color: '#303030',
     },
     titleTotal: {
-        fontSize: 12,
+        fontSize: 16,
         textAlign: 'center',
         color: '#303030',
     },
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     priceTotal: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '600',
         color: '#4E5A37',
         textAlign: 'center',
