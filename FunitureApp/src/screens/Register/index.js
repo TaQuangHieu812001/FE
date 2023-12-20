@@ -17,12 +17,18 @@ const RegisterScreen = ({ navigation }) => {
 
   const handleRegister = async () => {
     try {
-      console.log('vao')
+      if(!email.trim() || !email.trim()){
+        Alert.alert('Tài khoản hoặc mật khẩu không được để trống');
+        return;
+
+      }
+      
       const userData = { userName, email, password };
       const user = await RegisterApi(userData);
-      console.log("user: ", user.data.message);
-
-
+      
+      Alert.alert(user.data.message)
+      navigation.navigate(ScreenName.LOGIN_EMAIL_SCREEN)
+      
     } catch (err) {
       console.log(err)
     }
@@ -92,11 +98,11 @@ const RegisterScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-          <View style={styles.loginButton}>
-            <TouchableOpacity onPress={() => handleLogin()}>
+      
+            <TouchableOpacity onPress={() => handleRegister()} style={styles.loginButton}>
               <Text style={styles.loginButtonText}>Đăng ký</Text>
             </TouchableOpacity>
-          </View>
+    
 
           <View style={styles.signUpContainer}>
             <Text>Bạn đã có tài khoản?</Text>

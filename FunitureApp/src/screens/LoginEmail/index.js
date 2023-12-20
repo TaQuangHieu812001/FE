@@ -18,8 +18,8 @@ import LoginApi from '../../api/Login.api';
 import image from '../../utils/image';
 
 const LoginEmailScreen = () => {
-  const [email, setEmail] = useState('test@gmail.com');
-  const [password, setPassWord] = useState('1234567');
+  const [email, setEmail] = useState('');
+  const [password, setPassWord] = useState('');
   const [seePassword, setSeePassword] = useState(true);
   const navigation = useNavigation();
   const dispatch = useDispatch();

@@ -14,7 +14,7 @@ const ProfileScreen = () => {
     <View style={styles.body}>
       <Header
         iconLeft={icon.arrowLeft}
-        title='Profile'
+        title='Thông tin'
         iconRight={icon.shopping}
         onPressLeft={()=>navigation.goBack()}
       />
@@ -28,14 +28,8 @@ const ProfileScreen = () => {
           />
 
         </View>
-        <TouchableOpacity style={styles.criclePen}>
-          <Image
-            source={icon.pen}
-            style={styles.iconPen}
-            resizeMode='contain'
-          />
-        </TouchableOpacity>
-        <Text style={styles.nameUser}>Kristin Waston</Text>
+      
+        <Text style={styles.nameUser}></Text>
         <Text style={styles.gmailUser}>bruno203@gmail.com</Text>
       </View>
 

@@ -59,7 +59,8 @@ export default function ShippingAddressEdit({ navigation, route }) {
             <Header
                 title='Thông tin khách hàng'
                 iconLeft={icon.arrowLeft}
-
+                onPressLeft={()=>navigation.goBack()}
+                
             />
             <ScrollView style={{ flex: 1, backgroundColor: '#fff' }}>
                 <View style={{ height: 30 }}></View>

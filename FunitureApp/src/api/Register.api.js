@@ -6,6 +6,7 @@ const apiUrl =`${url}/api/Registration`;
 async function RegisterApi(userData) {
   try {
       const response = await axios.post(`${apiUrl}`,userData);
+      console.log(response);
       return {
         isSuccess:true,
         msg:"",

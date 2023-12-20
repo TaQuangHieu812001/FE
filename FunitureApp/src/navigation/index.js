@@ -60,10 +60,7 @@ const RootNavigatior = () => {
                     name={ScreenName.SHIPPINGADDRESS_SCREEN}
                     component={ShippingAddress}
                 />
-                <Stack.Screen
-                    name={ScreenName.ShippingEdit}
-                    component={ShippingEdit}
-                />
+             
                 <Stack.Screen
                     name={ScreenName.Checkout}
                     component={Checkout}
@@ -71,6 +68,10 @@ const RootNavigatior = () => {
                 <Stack.Screen
                     name={ScreenName.CheckoutSuccess}
                     component={CheckoutSuccess}
+                />
+                   <Stack.Screen
+                    name={ScreenName.ShippingEdit}
+                    component={ShippingEdit}
                 />
                 <Stack.Screen
                     name={ScreenName.MYORDER_SCREEN}

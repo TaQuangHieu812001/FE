@@ -71,6 +71,7 @@ const Checkout = ({ navigation }) => {
                 title='Kiểm tra'
                 iconLeft={icon.arrowLeft}
                 onPressLeft={() => navigation.goBack()}
+                onPressRight={()=>console.log('b')}
             />
             <ScrollView style={{ flex: 1 }}>
                 <View style={{ paddingHorizontal: 20 }}>

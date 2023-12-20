@@ -51,7 +51,7 @@ const MyCartScreen = ({ navigation }) => {
         />
         <View style={{ margin: 20 }}>
           <Text style={styles.nameProduct}>{item.product.nameProduct}</Text>
-          <Text style={styles.price}>{item.productAttribute.price}</Text>
+          <Text style={styles.price}>${item.productAttribute.price}</Text>
           <View style={styles.detailProduct}>
 
             <View style={styles.buyProduct}>

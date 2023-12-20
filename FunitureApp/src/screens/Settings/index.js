@@ -21,6 +21,9 @@ const SettingScreen = ({ navigation }) => {
     const [oldPass, setOldPass] = useState('')
     const [newPass, setNewPass] = useState('')
     const [isEnabled, setIsEnabled] = useState(false);
+    const [isDarkMode,setIsDarkMode] = useState(false);
+    const [isOnline,setIsOnline] = useState(false);
+
     const [isEditName, setIsEditingName] = useState(false);
     const [isEditingPass, setIsEditingPass] = useState(false);
 
@@ -82,6 +85,15 @@ const SettingScreen = ({ navigation }) => {
 
     const toggleSwitch = () => {
         setIsEnabled((previousState) => !previousState);
+    
+    };
+    const toggleSwitch2 = () => {
+        setIsDarkMode((previousState) => !previousState);
+    
+    };
+    const toggleSwitch3 = () => {
+        setIsOnline((previousState) => !previousState);
+    
     };
     return (
 
@@ -213,20 +225,20 @@ const SettingScreen = ({ navigation }) => {
                     <Text style={styles.nameNotification}>Chế độ sáng tối</Text>
                     <Switch
                         trackColor={{ false: '#E0E0E0', true: '#27AE60' }}
-                        thumbColor={isEnabled ? '#ffff' : 'white'}
+                        thumbColor={isDarkMode ? '#ffff' : 'white'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
+                        onValueChange={toggleSwitch2}
+                        value={isDarkMode}
                     />
                 </View>
                 <View style={styles.notification}>
                     <Text style={styles.nameNotification}>Trạng thái hoạt động</Text>
                     <Switch
                         trackColor={{ false: '#E0E0E0', true: '#27AE60' }}
-                        thumbColor={isEnabled ? '#ffff' : 'white'}
+                        thumbColor={isOnline ? '#ffff' : 'white'}
                         ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
+                        onValueChange={toggleSwitch3}
+                        value={isOnline}
                     />
                 </View>
                 <Text style={styles.titleHelp}>Trợ giúp</Text>

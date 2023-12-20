@@ -86,7 +86,7 @@ const ProductDetail = ({ route, navigation }) => {
                         <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#000' }}>{product.product.nameProduct}</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingRight: 20, marginVertical: 10 }}>
                             <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#000' }}>${getPrice()}</Text>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <TouchableOpacity style={{ width: 25, height: 25, borderRadius: 15, borderWidth: 1, justifyContent: 'center', alignItems: 'center' }}
 
                                 >
@@ -104,7 +104,8 @@ const ProductDetail = ({ route, navigation }) => {
                                         color={'#fff'}
                                     />
                                 </TouchableOpacity>
-                            </View>
+                            </View> */}
+
                         </View>
                         <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
                             <IconFA
@@ -119,9 +120,9 @@ const ProductDetail = ({ route, navigation }) => {
                             <Text>
                                 {`Ghế sofa 3 chỗ được chia thành các loại ghế sofa khác nhau và gồm 3 loại dựa theo chất liệu đó là sofa da 3 chỗ, sofa nỉ 3 chỗ và sofa gỗ bọc da nỉ 3 chỗ ngồi`}
                             </Text>
-                            <TouchableOpacity >
+                            {/* <TouchableOpacity >
                                 <Text style={{ textAlign: 'center', fontWeight: 'bold' }}>Xem thêm</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
 
                     </View>
