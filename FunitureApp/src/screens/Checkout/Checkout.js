@@ -65,6 +65,10 @@ const Checkout = ({ navigation }) => {
         }
         else alert(response.msg);
     }
+    const navigateBankingOnline =()=>{
+        setPaymentType(0);
+        navigation.navigate(ScreenName.BANKINGONLINE)
+    }
     return (
         <View style={styles.body}>
             <Header
@@ -100,7 +104,7 @@ const Checkout = ({ navigation }) => {
                     </TouchableOpacity>
                     <View style={{ paddingVertical: 20 }}>
                         <TouchableOpacity
-                            onPress={() => setPaymentType(0)}
+                            onPress={() => navigateBankingOnline()}
                             style={{ paddingVertical: 10, flexDirection: 'row', alignItems: 'center' }}>
                             <Image
                                 source={paymentType == 0 ? icon.checkboxTrue : icon.checkboxFail}

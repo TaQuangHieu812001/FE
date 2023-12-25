@@ -11,5 +11,5 @@ export default{
     stand:require('../assets/img/minimalStand.png'),
     background2:require('../assets/img/background2.png'),
     light:('../assets/img/light.png'),
-
+    banking:('../assets/img/logo_SEO_2ae7d33246.jpg')
 }

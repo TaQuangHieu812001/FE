@@ -42,9 +42,9 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={styles.title}>Chào buổi sáng</Text>
                     <Text style={styles.text_wellcome}>Mong rằng sẽ có trải nghiệm tốt...</Text>
                 </View>
-                <TouchableOpacity style={styles.btnProfile} onPress={() => navigation.navigate(ScreenName.PROFILE_SCREEN)}>
+            
                     <Image source={icon.profile} style={styles.iconProfile} resizeMode='contain' />
-                </TouchableOpacity>
+              
             </View>
             <View style={styles.parentSearchFilter}>
                 <TouchableOpacity onPress={() => navigation.navigate(ScreenName.FillterScreen)} style={styles.btnSearch}>

@@ -5,6 +5,7 @@ import Header from '../../components/header';
 import icon from '../../utils/icon';
 import OrderDetails from './components/OrderDetails';
 import OrderApi from '../../api/Order.api';
+import { ScreenName } from '../../navigation/ScreenName';
 
 const MyOrderScreen = ({ navigation }) => {
 
@@ -31,6 +32,7 @@ const MyOrderScreen = ({ navigation }) => {
           iconLeft={icon.arrowLeft}
           iconRight={icon.shopping}
           onPressLeft={() => navigation.goBack()}
+          onPressRight={()=>navigation.navigate(ScreenName.CART_sCREEN)}
         />
         <View style={styles.OrderStatus}>
           <TouchableOpacity onPress={() => setSelectedTab("delivered")}>

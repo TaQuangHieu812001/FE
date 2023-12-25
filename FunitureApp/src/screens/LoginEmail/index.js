@@ -18,8 +18,8 @@ import LoginApi from '../../api/Login.api';
 import image from '../../utils/image';
 
 const LoginEmailScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassWord] = useState('');
+  const [email, setEmail] = useState('anh@gmail.com');
+  const [password, setPassWord] = useState('123456');
   const [seePassword, setSeePassword] = useState(true);
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const LoginEmailScreen = () => {
   const handleLogin = async () => {
     const user = {email, password};
     const response = await LoginApi(user);
-   
+
     if (response.isSuccess) {
       dispatch(LoginSuccess(response.data));
       

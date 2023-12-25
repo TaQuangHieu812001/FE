@@ -21,5 +21,6 @@ export const ScreenName = {
     ShippingEdit: 'ShippingEdit',
     Checkout: 'Checkout',
     CheckoutSuccess: 'CheckoutSuccess',
-    MyOrderDetail: 'MyOrderDetail'
+    MyOrderDetail: 'MyOrderDetail',
+    BANKINGONLINE:'BankingOnlineScreen'
 }

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput, ScrollView, Alert } from 'react-native'
 import React from 'react'
 import Header from '../../components/header'
 import icon from '../../utils/icon'
@@ -13,6 +13,7 @@ export default function ShippingAddressEdit({ navigation, route }) {
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
 
+    
     useEffect(() => {
         getAllShip();
         if(route.params!=null){
@@ -26,6 +27,7 @@ export default function ShippingAddressEdit({ navigation, route }) {
       
     }, [])
     const saveShip = async () => {
+        
         if (isUpdate) {
             console.log('update')
             let response = await ApiShip.Update(address, phone, name, '', route.params.active, route.params.id);

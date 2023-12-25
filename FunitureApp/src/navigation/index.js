@@ -17,6 +17,7 @@ import CheckoutSuccess from '../screens/Checkout/OrderSuccess'
 import MyOrder from '../screens/MyOrders'
 import MyOrderDetail from '../screens/MyOrders/MyOrderDetail'
 import ProfileScreen from "../screens/Profile";
+import BankingOnlineScreen from "../screens/BankingOnline";
 const Stack = createNativeStackNavigator();
 
 const RootNavigatior = () => {
@@ -80,6 +81,10 @@ const RootNavigatior = () => {
                 <Stack.Screen
                     name={ScreenName.MyOrderDetail}
                     component={MyOrderDetail}
+                />
+                <Stack.Screen
+                    name={ScreenName.BANKINGONLINE}
+                    component={BankingOnlineScreen}
                 />
             </Stack.Navigator>
         )

@@ -6,6 +6,7 @@ import RootNavigatior from "./src/navigation";
 import { Provider } from "react-redux";
 import store from "./src/store";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import BankingOnlineScreen from "./src/screens/BankingOnline";
 const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
