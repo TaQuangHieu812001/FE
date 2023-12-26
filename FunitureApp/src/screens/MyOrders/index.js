@@ -43,7 +43,7 @@ const MyOrderScreen = ({ navigation }) => {
 
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setSelectedTab("processing")}>
-            <Text style={styles.nameStatus}>Vận chuyển</Text>
+            <Text style={styles.nameStatus}>Đang xử lý</Text>
             {
               selectedTab == "processing" && <View style={styles.horizontalShort}></View>
             }

@@ -26,7 +26,7 @@ const MyCartScreen = ({ navigation, route }) => {
                 <View style={styles.detailProduct}>
                     <View>
                         <Text style={styles.nameProduct}>{item.product.nameProduct}</Text>
-                        <Text style={styles.price}>Giá tiền: {item.productAttribute.price}</Text>
+                        <Text style={styles.price}>Giá tiền: ${item.productAttribute.price}</Text>
                     </View>
                     <View style={styles.buyProduct}>
 
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         marginTop: 4,
         justifyContent: 'space-between',
         width: windowDimensions.width * 0.3,
-        // borderWidth:1,
+        marginLeft:14,
         right: 6,
     },
     buyCount: {

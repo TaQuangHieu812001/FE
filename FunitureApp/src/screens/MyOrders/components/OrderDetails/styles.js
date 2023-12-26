@@ -69,6 +69,14 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         marginTop:'10%',
     },
+    btnWarning:{
+        width:windowDimensions.width * 0.41,
+        height:windowDimensions.height * 0.04,
+        borderRadius:8,
+        backgroundColor:'orange',
+        justifyContent:'center',
+        marginTop:'10%',
+    },
     contentDetails:{
         fontSize:14,
         color:'#ffff',

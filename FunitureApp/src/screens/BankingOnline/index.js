@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import Header from "../../components/header";
 import icon from "../../utils/icon";
-import BankingTransferApi from "../../api/BankingTransfer";
+import BankingApi from "../../api/BankingTransfer";
 import image from "../../utils/image";
 import styles from "./styles";
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { ScreenName } from "../../navigation/ScreenName";
 
-
-const BankingOnlineScreen = ({ navigation }) => {
+const BankingOnlineScreen = ({ navigation,route }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [data, setData] = useState(null);
     useEffect(() => {
         const getDataTransfer = async () => {
             try {
-                const result = await BankingTransferApi();
+                const result = await BankingApi.BankingTransferApi();
                 if (result.isSuccess) {
                     setData(result.data);
                 } else {
@@ -30,10 +30,17 @@ const BankingOnlineScreen = ({ navigation }) => {
         try {
             const result = await launchImageLibrary(); // Gọi hàm để chọn ảnh
             console.log('Image Picker Result:', result);
-       
+            
             const uri = result.assets[0]?.uri
                 setSelectedImage(uri)
-                console.log("-----",uri)
+                console.log("-----",uri);
+            let uploadResponse= await BankingApi.UploadImage(uri);
+            console.log(uploadResponse.data)
+            if(uploadResponse.isSuccess){
+                let imgUrl=uploadResponse.data[0];
+                await BankingApi.UpdateOrder(imgUrl,route.params.order.id);
+                navigation.navigate(ScreenName.CheckoutSuccess)
+            }
         } catch (error) {
             console.log('Image Picker Error:', error);
         }
@@ -64,6 +71,14 @@ const BankingOnlineScreen = ({ navigation }) => {
                     <Text style={styles.nameBanking}>Chi nhánh:</Text>
                     <Text style={styles.nameBanking}>{data.branchAdress}</Text>
                 </View>
+                <View style={styles.bankingDetails}>
+                    <Text style={styles.nameBanking}>Số tiền:</Text>
+                    <Text style={styles.nameBanking}>{route.params.order.total}</Text>
+                </View>
+                <View style={styles.bankingDetails}>
+                    <Text style={styles.nameBanking}>Nội dung chuyển khoản:</Text>
+                    <Text style={styles.nameBanking}>thanhtoan_{route.params.order.id}</Text>
+                </View>
                 <TouchableOpacity
                     style={{ flexDirection: 'row', justifyContent: 'center', alignSelf: 'center', marginTop: '10%', alignItems: 'center' }}
                     onPress={chooseImage}
@@ -81,6 +96,9 @@ const BankingOnlineScreen = ({ navigation }) => {
                     style={{width:'100%',height:'50%',marginTop:10}}
                     resizeMode="contain"
                 />
+                <TouchableOpacity>
+                    
+                </TouchableOpacity>
             </View>
         )
     }

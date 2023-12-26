@@ -27,10 +27,17 @@ const OrderDetails = ({ data, navigation }) => {
 
                 </View>
             </>
+            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
             <TouchableOpacity style={styles.btnDetail} onPress={() => navigation.navigate(ScreenName.MyOrderDetail, { orderItems: data.orderItems })}>
                 <Text style={styles.contentDetails}>Chi tiết</Text>
             </TouchableOpacity>
-
+            {
+                (data.order.bankingImage==null&&data.order.paymentType==0&&data.order.paymentStatus==0)&&
+                    <TouchableOpacity style={styles.btnWarning} onPress={() => navigation.navigate(ScreenName.BANKINGONLINE, { order: data.order })}>
+                    <Text style={styles.contentDetails}>Chưa thanh toán</Text>
+                </TouchableOpacity>
+            }
+</View>
         </View>
     )
 }

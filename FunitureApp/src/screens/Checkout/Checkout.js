@@ -58,8 +58,9 @@ const Checkout = ({ navigation }) => {
             dispatch(ClearCart());
             if (response.data != null) {
                 console.log(response.data)
-                Linking.openURL(response.data);
-                navigation.navigate(ScreenName.MYORDER_SCREEN); return;
+                navigation.navigate(ScreenName.BANKINGONLINE,{order:response.data})
+                //navigation.navigate(ScreenName.MYORDER_SCREEN); 
+                return;
             }
             navigation.navigate(ScreenName.CheckoutSuccess)
         }
@@ -67,7 +68,7 @@ const Checkout = ({ navigation }) => {
     }
     const navigateBankingOnline =()=>{
         setPaymentType(0);
-        navigation.navigate(ScreenName.BANKINGONLINE)
+       
     }
     return (
         <View style={styles.body}>
@@ -115,7 +116,7 @@ const Checkout = ({ navigation }) => {
                                 style={{ width: 30, height: 30, marginRight: 10 }}
                                 resizeMode='contain'
                             />
-                            <Text style={{ color: '#000' }}>Thẻ ngân hàng</Text>
+                            <Text style={{ color: '#000' }}>Chuyển khoản</Text>
 
                         </TouchableOpacity>
                         <TouchableOpacity
