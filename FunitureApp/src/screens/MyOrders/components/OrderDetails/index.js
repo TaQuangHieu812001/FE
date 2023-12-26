@@ -22,7 +22,7 @@ const OrderDetails = ({ data, navigation }) => {
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.total}>Tổng: </Text>
-                        <Text style={styles.price}>{data.order.total}</Text>
+                        <Text style={styles.price}>{data.order.total}.000</Text>
                     </View>
 
                 </View>

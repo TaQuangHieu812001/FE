@@ -111,9 +111,9 @@ const LoginEmailScreen = () => {
               <Text style={styles.signUpText}>Đăng ký</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={() => navigation.navigate(ScreenName.REGISTER_SCREEN)}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate(ScreenName.REGISTER_SCREEN)}>
               <Text style={styles.signUpText}> Quên mật khẩu?</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
       </View>
     </View>

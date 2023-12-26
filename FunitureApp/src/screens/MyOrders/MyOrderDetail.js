@@ -65,7 +65,7 @@ const MyCartScreen = ({ navigation, route }) => {
                     <Text style={styles.itemProduct}>Sản phẩm ({CartState.length})</Text>
                     <View style={styles.total}>
                         <Text style={styles.titleTotal}>Tổng</Text>
-                        <Text style={styles.priceTotal}>{getPrice()}</Text>
+                        <Text style={styles.priceTotal}>${getPrice()}</Text>
                     </View>
                 </View>
 
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     product: {
         height: 101,
         width: windowDimensions.width * 0.38,
+        marginLeft:12,
     },
     buyProduct: {
         flexDirection: 'row',
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
         marginTop: 4,
         justifyContent: 'space-between',
         width: windowDimensions.width * 0.3,
-        marginLeft:14,
+        marginLeft:30,
         right: 6,
     },
     buyCount: {
